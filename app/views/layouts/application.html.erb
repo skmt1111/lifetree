@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lifetree -あなたの人生を一本の木で表現しよう-</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'logo.png' %>
+  </head>
+
+  <body>
+      <% if logged_in? %>
+      <div class="ui menu">
+        <%= link_to user_url(current_user.nickname), class: 'item' do %>
+          <i class="leaf icon"></i>
+          LifeTree
+        <% end %>
+        <div class="right menu">
+          <div class="ui simple dropdown item">
+              <div class="text">
+                <%= image_tag current_user.image_url, class: 'twitter-thumbnail' %>
+              </div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <%= link_to new_user_tree_url(current_user.nickname), class: 'item' do %>
+                  <i class="edit icon"></i>
+                  New
+                <% end %>
+                <%= link_to logout_url, class: 'item', method: :delete do %>
+                  <i class="share square icon"></i>
+                  ログアウト
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <% else %>
+        <div class="ui menu">
+          <%= link_to root_url, class: 'item' do %>
+          <i class="leaf icon"></i>
+          Home
+          <% end %>
+          <div class="right menu">
+            <%= link_to 'auth/twitter', class: 'item' do %>
+              <i class="twitter icon"></i>
+              Twitterでログイン
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+<% if notice %>
+  <div class="ui success message">
+    <i class="close icon"></i>
+    <%= notice %>
+  </div>
+</div>
+<% end %>
+<%= yield %>
+</body>
+</html>

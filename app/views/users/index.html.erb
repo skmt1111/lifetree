@@ -1,0 +1,18 @@
+<div class="ui raised very padded text container segment">
+  <h2 class="ui header center">Life Treeへようこそ！</h2>
+  <p>あなたの人生を一本の木で表現しましょう</p>
+  <p>Twitterなどでシェアをしてみよう！</p><br/>
+
+</br/>
+  <% if logged_in? %>
+    <%= link_to user_url(current_user), class: 'center' do %>
+      <i class="share icon"></i>
+      <span>Treeを見に行く</span>
+      <% end %>
+  <% else %>
+    <%= link_to 'auth/twitter', class: 'positive ui fluid submit button' do %>
+      <i class="share icon"></i>
+      <span>Twitterでログインする</span>
+    <% end %>
+  <% end %>
+</div>

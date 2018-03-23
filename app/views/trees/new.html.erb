@@ -1,0 +1,21 @@
+<div class="ui raised very padded text container segment">
+  <%= form_for @tree, url: user_trees_path, method: :post do |form| %>
+  <div class="ui form">
+    <div class="field">
+      <%= form.text_field :title, id: :tree_title, placeholder: 'title' %>
+    </div>
+
+    <div class="field">
+      <%= form.text_area :content, id: :tree_content, placeholder: 'content' %>
+    </div>
+
+    <div class="field">
+      <%= form.date_field :special_date, id: :tree_special_date %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit '登録', class: 'ui fluid large teal submit button' %>
+    </div>
+  </div>
+  <% end %>
+</div>

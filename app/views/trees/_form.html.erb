@@ -1,0 +1,32 @@
+<%= form_with(model: tree, local: true) do |form| %>
+  <% if tree.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tree.errors.count, "error") %> prohibited this tree from being saved:</h2>
+
+      <ul>
+      <% tree.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="ui form">
+  <div class="field">
+    <%= form.text_field :title, id: :tree_title, placeholder: 'title' %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :content, id: :tree_content, placeholder: 'content' %>
+  </div>
+
+  <div class="field">
+    <%= form.date_field :special_date, id: :tree_special_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'save', class: 'positive ui button' %>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,55 @@
+<% if current_user.id == @user.id %>
+<div class="ui container">
+  <div class="timeline">
+    <% @user.trees.each do |tree| %>
+    <div class='<%= cycle("even", "odd") %>'>
+      <div class="timeline-icon">
+      </div>
+      <%= link_to edit_tree_url(tree), class: 'ui card' do %>
+      <div class="content">
+        <div class="header"><%= tree.title %></div>
+        <div class="meta">
+          <span class="category">Animals</span>
+        </div>
+        <div class="description">
+          <p><%= tree.content %></p>
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="right floated author">
+          <%= tree.special_date %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<% else %>
+<div class="ui container">
+  <div class="timeline">
+    <% @user.trees.each do |tree| %>
+    <div class='<%= cycle("even", "odd") %>'>
+      <div class="timeline-icon">
+      </div>
+      <%= content_tag :div, class: 'ui link card' do %>
+      <div class="content">
+        <div class="header"><%= tree.title %></div>
+        <div class="meta">
+          <span class="category">Animals</span>
+        </div>
+        <div class="description">
+          <p><%= tree.content %></p>
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="right floated author">
+          <%= tree.special_date %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<% end %>
