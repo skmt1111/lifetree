@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'privacy/index', to: 'privacy#index', as: 'privacy'
-  get 'terms/index', to: 'terms#index', as: 'terms'
+  get 'privacy', to: 'privacy#index', as: 'privacy'
+  get 'terms', to: 'terms#index', as: 'terms'
 
   resources :users, path: '/', only: [ :index, :show] do
     resources :trees, only: [ :new, :create, :edit, :update, :destroy], shallow: true
