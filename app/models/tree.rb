@@ -6,5 +6,5 @@ class Tree < ApplicationRecord
   validates :content, length: { in: 1..100 }
   validates :special_date, presence: true
 
-  default_scope { order(special_date: :desc) }
+  default_scope -> { order(special_date: :asc) }
 end
