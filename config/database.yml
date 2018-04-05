@@ -14,7 +14,8 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: <%= ENV['LIFETREE_DATABASE_PASSWORD'] %>
+  # password: <%= ENV['LIFETREE_DATABASE_PASSWORD'] %>
+  password: kousei1111
   socket: /var/run/mysqld/mysqld.sock
 
 development:
