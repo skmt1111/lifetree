@@ -12,7 +12,7 @@ module ApplicationHelper
     end
     twitter_card[:image] = 'assets/logo.png'
     twitter_card[:card] = 'summary'
-    twitter_card[:site] = '@LifeTree'
+    twitter_card[:creator] = '@slopebook___'
     twitter_card
   end
 end

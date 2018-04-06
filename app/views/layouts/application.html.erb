@@ -10,7 +10,7 @@
 
     <% twitter_card = get_twitter_card_info(@user ? @user : nil) %>
     <meta name="twitter:card" content=<%=twitter_card[:card]%> />
-    <meta name="twitter:site" content=<%=twitter_card[:site]%> />
+    <meta name="twitter:creator" content=<%=twitter_card[:creator]%> />
     <meta property="og:url" content=<%=twitter_card[:url]%> />
     <meta property="og:title" content=<%=twitter_card[:title]%> />
     <meta property="og:description" content=<%=twitter_card[:description]%> />
@@ -68,4 +68,13 @@
 <% end %>
 <%= yield %>
 </body>
+<script>
+$('.message .close')
+  .on('click', function() {
+    $(this)
+      .closest('.message')
+      .transition('fade')
+    ;
+  })
+;</script>
 </html>
