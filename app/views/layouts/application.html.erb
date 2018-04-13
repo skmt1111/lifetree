@@ -20,7 +20,7 @@
 
   <body>
       <% if logged_in? %>
-      <div class="ui menu">
+      <div class="ui borderless main menu">
         <div class="ui container">
           <%= link_to user_url(current_user.nickname), class: 'item' do %>
             <i class="leaf icon"></i>
@@ -52,7 +52,7 @@
         </div>
 
       <% else %>
-        <div class="ui menu">
+        <div class="ui borderless main menu">
           <div class="ui container">
             <%= link_to root_url, class: 'item' do %>
             <i class="leaf icon"></i>
@@ -68,15 +68,19 @@
         </div>
       <% end %>
     <% if notice %>
-      <div class="ui success message">
-        <i class="close icon"></i>
-        <%= notice %>
+      <div class="ui container">
+        <div class="ui success message">
+          <i class="close icon"></i>
+          <%= notice %>
+        </div>
       </div>
     <% end %>
     <% if alert %>
-      <div class="ui error message">
-        <i class="close icon"></i>
-        <%= alert %>
+      <div class="ui container">
+        <div class="ui error message">
+          <i class="close icon"></i>
+          <%= alert %>
+        </div>
       </div>
     <% end %>
     <%= yield %>
