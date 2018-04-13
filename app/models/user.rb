@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :trees, dependent: :destroy
+  has_many :trees, dependent: :delete_all
 
   def self.find_or_create_from_auth(auth)
     provider = auth[:provider]

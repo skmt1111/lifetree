@@ -7,21 +7,23 @@
   </div>
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <p>あなたの人生を一本の木で表現しましょう</p>
-  <p>Twitterなどでシェアをしてみよう！</p><br/>
-
-</br/>
-  <% if logged_in? %>
-    <%= link_to user_url(current_user), class: 'center' do %>
-      <i class="share icon"></i>
-      <span>Treeを見に行く</span>
+  <p>Twitterなどでシェアをしてみよう！</p>
+  <br/>
+  </br/>
+  <div class="center">
+    <% if logged_in? %>
+      <%= link_to user_url(current_user) do %>
+        <i class="share icon"></i>
+        <span>Treeを見に行く</span>
       <% end %>
-  <% else %>
-    <%= link_to 'auth/twitter', class: 'positive ui fluid submit button' do %>
-      <i class="share icon"></i>
-      <span>Twitterでログインする</span>
+    <% else %>
+      <%= link_to 'auth/twitter', class: 'positive ui submit button' do %>
+        <i class="share icon"></i>
+        <span>Twitterでログインする</span>
+      <% end %>
     <% end %>
-  <% end %>
-  <div class='center'>
+  </div>
+  <div class="center">
     <div class="ui horizontal small divided link list">
       <%= link_to '利用規約(仮)', terms_url, class: 'item' %>
       <%= link_to 'プライバシーポリシー(仮)', privacy_url, class: 'item' %>

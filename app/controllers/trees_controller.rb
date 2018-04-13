@@ -21,6 +21,16 @@ class TreesController < ApplicationController
   # GET /trees/1/edit
   def edit
     @tree = Tree.find(params[:id])
+
+    if logged_in?
+      if current_user.id == @tree.user.id
+        render :edit
+      else
+        redirect_to root_url, alert: '権限がありません'
+      end
+    else
+      redirect_to root_url, alert: 'ログインしてください'
+    end
   end
 
   # POST /trees

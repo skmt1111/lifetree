@@ -1,0 +1,25 @@
+<div class="ui raised very padded text container segment">
+  <%= form_for @user, method: :patch do |form| %>
+  <div class="ui form">
+    <div class="field">
+      <%= image_tag current_user.image_url, class: 'twitter-thumbnail' %>
+    </div>
+    <div class="field">
+      <%= form.text_field :name, readonly: true %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :nickname, readonly: true %>
+    </div>
+
+    <div class="ui toggle checkbox">
+      <%= form.check_box :public %><label>公開する</label>
+    </div>
+    <br><br><br>
+    <div class="center">
+      <%= form.submit '更新', class: 'ui teal submit button' %>
+    </div>
+  </div>
+  <% end %>
+  </div>
+</div>

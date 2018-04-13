@@ -10,7 +10,7 @@
     <div class='<%= cycle("even", "odd") %>'>
       <div class="timeline-icon">
       </div>
-      <%= content_tag :div, class: 'ui link card' do %>
+      <%= link_to edit_tree_url(tree), class: 'ui card' do %>
       <div class="content">
         <div class="header"><%= tree.title %></div>
         <div class="description">
