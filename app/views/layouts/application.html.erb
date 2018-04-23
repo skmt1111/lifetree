@@ -84,6 +84,13 @@
       </div>
     <% end %>
     <%= yield %>
+    <div class="center">
+      <div class="ui horizontal small divided link list">
+        <%= link_to root_url, class: "item" do %>
+          © 2018 LifeTree
+        <% end %>
+      </div>
+    </div>
   </body>
   <script>
   $('.message .close')
